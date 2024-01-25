@@ -2,6 +2,16 @@ import guilded
 from guilded.ext import commands
 from config import token
 from guilded.ext.commands import MemberConverter
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello World!'
+
+if __name__ == '__main__':
+    app.run()
 
 bot = commands.Bot(command_prefix='$', experimental_event_style=True)
 
