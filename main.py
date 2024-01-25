@@ -28,7 +28,7 @@ async def kick(ctx, member: commands.MemberConverter = None, *, reason=None):
             description="For the argument `target` i was expecting a `user` required to make this request. \n\nYou **must** mention a user to kick. \n\n*Don't know how to get a user's id? refer to [this post](https://support.guilded.gg/hc/en-us/articles/6183962129303-Developer-mode) to enable **developer** mode.*",
             color=0x36363D
         )
-        error_embed.add_field(name="Usage", value="```$kick [userid] [reason]```")
+        error_embed.add_field(name="Usage", value="```$kick [ArB9z1qA] [reason]```")
         await ctx.reply(embed=error_embed, private=True)
         return
 
@@ -66,10 +66,10 @@ async def ban(ctx, member: commands.MemberConverter = None, *, reason=None):
     if member is None:
         error_embed = guilded.Embed(
             title="Error ❌",
-            description="For the argument `target` i was expecting a `user` required to make this request. \n\nYou **must** mention a user to kick. \n\n*Don't know how to get a user's id? refer to [this post](https://support.guilded.gg/hc/en-us/articles/6183962129303-Developer-mode) to enable **developer** mode.*",
+            description="For the argument `target` i was expecting a `user` required to make this request. \n\nYou **must** mention a user to ban. \n\n*Don't know how to get a user's id? refer to [this post](https://support.guilded.gg/hc/en-us/articles/6183962129303-Developer-mode) to enable **developer** mode.*",
             color=0x36363D
         )
-        error_embed.add_field(name="Usage", value="```$kick [userid] [reason]```")
+        error_embed.add_field(name="Usage", value="```$ban [ArB9z1qA] [reason]```")
         await ctx.reply(embed=error_embed, private=True)
         return
 
@@ -92,7 +92,7 @@ async def ban(ctx, member: commands.MemberConverter = None, *, reason=None):
         await member.ban()
         await ctx.reply(embed=ban, silent=True)
     except Exception as e:
-        print(f"An error occurred while trying to ban theuser: {e}")
+        print(f"An error occurred while trying to ban the user: {e}")
         error_embed = guilded.Embed(
             title="Error ❌",
             description="An error occurred while trying to ban the user. \n\n*having trouble? no worries! You can send this to [The Developer](https://www.guilded.gg/u/weebwashere) so the problem can get fixed.*",
@@ -109,7 +109,7 @@ async def on_command_error(ctx, error):
             description=f"{ctx.author.mention}, For the argument `target`, I was expecting the `user` to have the correct permissions.\n\nYou **must** currently have the `{error.missing_perms}` permission in order to execute this command.",
             color=0x36363D
         )
-        permission_em.add_field(name="Usage", value="```$ban [userid] [reason]```")
+        permission_em.add_field(name="Usage", value="```$ban [ArB9z1qA] [reason]```")
         await ctx.send(embed=permission_em, private=True)
     else:
         print(f"An error occurred: {error}")
